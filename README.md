@@ -3,6 +3,38 @@ The following repository contains an example of a Spring Boot application that m
 
 ## Maven Flatten Plugin
 
+### Usage
+
+Simply add the plugin to the build section of your top-level POM as following.
+```xml
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>flatten-maven-plugin</artifactId>
+        <version>1.2.5</version>
+        <configuration>
+        </configuration>
+        <executions>
+          <execution>
+            <id>flatten.flatten</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>flatten</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>flatten.clean</id>
+            <phase>clean</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+```
 
 #### Goal: Flatten Help
 The goal flatten:help display help information of the maven plugin called flatten-maven-plugin.
@@ -18,9 +50,7 @@ $ mvn flatten:help -Ddetail=true -Dgoal=clean
 $ mvn flatten:help -Ddetail=true -Dgoal=flatten
 ```
 
-
-  Call mvn flatten:help -Ddetail=true -Dgoal=<goal-name> to display parameter
-  details.
+**licenses**
 
 
 #### Goal: Flatten Clean
